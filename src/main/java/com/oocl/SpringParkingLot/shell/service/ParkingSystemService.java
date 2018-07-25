@@ -30,4 +30,10 @@ public class ParkingSystemService {
         //List<ParkingBoy> parkingBoys = parking
         return parkingBoyList;
     }
+
+    public ParkingBoy addParkingBoy(ParkingBoy parkingBoy) {
+        parkingBoy.setId("D"+parkingBoyList.size());
+        parkingBoyList.add(parkingBoy);
+        return parkingBoy;
+    }
 }
