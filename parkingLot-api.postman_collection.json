@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "f739d6f8-303b-4a07-ad4e-49f14cdb7ddf",
+		"name": "parkingLot-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/parkingLots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a57c1fd-5f6c-444c-b2e7-e73241c12004",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingLots\", function (err, response) {",
+							"    pm.test(\"should_return_parkingLots\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql([",
+							"        {",
+							"            \"id\": 1,",
+							"            \"name\": \"停车场第一个\",",
+							"            \"size\": 2,",
+							"            \"carList\": []",
+							"        }",
+							"        ]);",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/parkingLots",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingLots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingBoys",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a709c06b-e64a-491c-8d14-67db9be1ccf6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f8aae1a-f022-4e9b-bb01-fcae99f798e1",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingBoys\", function (err, response) {",
+							"    pm.test(\"should_return_parkingBoys\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql([",
+							"            {",
+							"                \"id\": 1,",
+							"                \"name\": \"停车小弟jj\",",
+							"                \"parkingLotList\": [",
+							"                    {",
+							"                        \"id\": 1,",
+							"                        \"name\": \"停车场第一个\",",
+							"                        \"size\": 2,",
+							"                        \"carList\": []",
+							"                    }",
+							"                ],",
+							"                \"orderList\": []",
+							"            }",
+							"        ]);",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"停车小弟2\",\n        \"parkingLotList\": [\n            {\n                \"id\": \"D2\",\n                \"name\": \"第二个\",\n                \"size\": 3,\n                \"parkingBoyId\": \"1\",\n                \"carList\": []\n            }\n        ]\n    }"
+				},
+				"url": {
+					"raw": "localhost:8080/parkingBoys",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingBoys",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8bee9d6c-dc4f-41c5-9242-f890f59ae17e",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingBoys\", function (err, response) {",
+							"    pm.test(\"should_return_the_parkingBoy_with_id\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql({",
+							"            \"id\": 2,",
+							"            \"name\": \"停车小弟二\",",
+							"            \"parkingLotList\": [",
+							"                {",
+							"                    \"id\": 2,",
+							"                    \"name\": \"停车场第er个\",",
+							"                    \"size\": 3,",
+							"                    \"carList\": []",
+							"                }",
+							"            ],",
+							"            \"orderList\": []",
+							"        });",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"停车小弟二\",\n    \"parkingLotList\": [\n        {\n            \"id\": 2,\n            \"name\": \"停车场第er个\",\n            \"size\": 3,\n             \"carList\": []\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/parkingBoys",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingLots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5da7c4d-30e6-479a-b6d2-1cffbe8ec296",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingLots\", function (err, response) {",
+							"    pm.test(\"should_return_the_parkingLot_with_id\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql({",
+							"            \"id\": 2,",
+							"            \"name\": \"停车场第er个\",",
+							"            \"size\": 3,",
+							"            \"carList\": []",
+							"        });",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"停车场第er个\",\n    \"size\": 3,\n    \"carList\": []\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/parkingLots",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingLots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingBoys/1/parkingLots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8af91bed-3e83-445b-aada-45cb82747896",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingBoys/1/parkingLots\", function (err, response) {",
+							"    pm.test(\"should_add_the_parkingLot_successfully\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql({",
+							"            \"id\": 1,",
+							"            \"name\": \"停车小弟jj\",",
+							"            \"parkingLotList\": [",
+							"                {",
+							"                    \"id\": 1,",
+							"                    \"name\": \"停车场第一个\",",
+							"                    \"size\": 2,",
+							"                    \"carList\": []",
+							"                },",
+							"                {",
+							"                    \"id\": 0,",
+							"                    \"name\": \"停车场第er个\",",
+							"                    \"size\": 3,",
+							"                    \"carList\": []",
+							"                }",
+							"            ],",
+							"            \"orderList\": []",
+							"        });",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"停车场第er个\",\n    \"size\": 3,\n    \"carList\": []\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/parkingBoys/1/parkingLots",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys",
+						"1",
+						"parkingLots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/receipts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c08c5fdc-f8e4-4f5a-bf76-fa41f1b302ff",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/receipts\", function (err, response) {",
+							"    pm.test(\"should_return_the_receipt\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql(",
+							"        {",
+							"            \"receiptID\": \"6WBW2VEPDXDZI36L\"",
+							"        }",
+							"        );",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"plateNumber\":\"粤CA9527\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/receipts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"receipts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingBoys/1/orders",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "654a6e08-0672-4b84-8dd2-d11c918f1202",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingLots/1\", function (err, response) {",
+							"    pm.test(\"should_status_code_is_200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"23333\",\n\t\"status\":false\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/parkingBoys/1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys",
+						"1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07abc772-2fdf-4fc5-bb34-edd35e617542",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/receipts\", function (err, response) {",
+							"    pm.test(\"should_return_the_car\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData).to.eql(",
+							"        {",
+							"            \"plateNumber\": \"粤CA9527\"",
+							"        }",
+							"        );",
+							"    });",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiptID\": \"6WBW2VEPDXDZI36L\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cars",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingLots/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1954d880-3c4e-434e-89a4-21cf17fd0277",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingLots/1\", function (err, response) {",
+							"    pm.test(\"should_status_code_is_200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/parkingLots/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingLots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/parkingBoys/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f2720e00-3742-497d-aa02-4a3972a6aa8a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest(\"localhost:8080/parkingBoys/1\", function (err, response) {",
+							"    pm.test(\"should_status_code_is_200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/parkingBoys/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

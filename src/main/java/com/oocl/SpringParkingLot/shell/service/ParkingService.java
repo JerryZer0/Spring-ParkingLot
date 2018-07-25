@@ -38,8 +38,16 @@ public class ParkingService {
         //System.out.println(parkingBoy.getOrderList().get(0));
     }
 
-//    public Car getOutCar(Receipt receipt) {
-//        Order order = new Order(receipt);
-//
-//    }
+    public Car getOutCar(Receipt receipt) {
+        Map<Receipt,Order> orderMap = repository.getOrderMap();
+        Order order = new Order();
+        for (Receipt r:orderMap.keySet()) {
+            if(r.getReceiptID().equals(receipt.getReceiptID())){
+                order = orderMap.get(r);
+                break;
+            }
+        }
+        Car car = repository.getCars().get(order);
+        return car;
+    }
 }

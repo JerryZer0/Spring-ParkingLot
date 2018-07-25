@@ -20,14 +20,15 @@ public class ParkingController {
         return receipt;
     }
 
-    @PostMapping("parkingBoys/{id}/orders")
+    @PutMapping("parkingBoys/{id}/orders")
     public void catchOrder(@PathVariable int id, @RequestBody Order order){
         service.catchOrder(id,order);
     }
 
-//    @GetMapping("cars")
-//    public Car getOutCar(@RequestBody Receipt receipt){
-//        Car car = service.getOutCar(receipt);
-//        return car;
-//    }
+    @PostMapping("cars")
+    public Car getOutCar(@RequestBody Receipt receipt){
+        Car car = service.getOutCar(receipt);
+        System.out.println(car.getPlateNumber());
+        return car;
+    }
 }
