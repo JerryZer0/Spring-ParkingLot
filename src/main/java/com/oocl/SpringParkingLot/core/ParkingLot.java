@@ -1,4 +1,4 @@
-package com.oocl.SpringParkingLot;
+package com.oocl.SpringParkingLot.core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,16 +7,18 @@ public class ParkingLot {
     private int id;
     private String name;
     private int size;
+    private String parkingBoyId;
 
     private List<Car> carList = new ArrayList<>();
 
     public ParkingLot() {
     }
 
-    public ParkingLot(int id, String name, int size, List<Car> carList) {
+    public ParkingLot(int id, String name, int size, String parkingBoyId, List<Car> carList) {
         this.id = id;
         this.name = name;
         this.size = size;
+        this.parkingBoyId = parkingBoyId;
         this.carList = carList;
     }
 
@@ -50,5 +52,13 @@ public class ParkingLot {
 
     public void setCarList(List<Car> carList) {
         this.carList = carList;
+    }
+
+    public String getParkingBoyId() {
+        return parkingBoyId;
+    }
+
+    public void setParkingBoyId(String parkingBoyId) {
+        this.parkingBoyId = parkingBoyId;
     }
 }

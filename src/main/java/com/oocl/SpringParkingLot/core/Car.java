@@ -1,4 +1,4 @@
-package com.oocl.SpringParkingLot;
+package com.oocl.SpringParkingLot.core;
 
 public class Car {
     private String plateNumber;
