@@ -11,10 +11,9 @@ public class ParkingBoy {
     public ParkingBoy() {
     }
 
-    public ParkingBoy(String id, String name, List<ParkingLot> parkingLotList) {
+    public ParkingBoy(String id, String name) {
         this.id = id;
         this.name = name;
-        this.parkingLotList = parkingLotList;
     }
 
     public String getId() {
@@ -39,5 +38,9 @@ public class ParkingBoy {
 
     public void setParkingLotList(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
+    }
+
+    public void addParkingLot(ParkingLot parkingLot){
+        parkingLotList.add(parkingLot);
     }
 }

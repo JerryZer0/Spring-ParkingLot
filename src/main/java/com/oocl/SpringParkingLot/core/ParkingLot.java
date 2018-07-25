@@ -14,12 +14,11 @@ public class ParkingLot {
     public ParkingLot() {
     }
 
-    public ParkingLot(String id, String name, int size, String parkingBoyId, List<Car> carList) {
+    public ParkingLot(String id, String name, int size, String parkingBoyId) {
         this.id = id;
         this.name = name;
         this.size = size;
         this.parkingBoyId = parkingBoyId;
-        this.carList = carList;
     }
 
     public String getId() {
