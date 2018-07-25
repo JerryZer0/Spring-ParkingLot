@@ -7,18 +7,18 @@ public class ParkingLot {
     private String id;
     private String name;
     private int size;
-    private String parkingBoyId;
+    //private String parkingBoyId;
 
     private List<Car> carList = new ArrayList<>();
 
     public ParkingLot() {
     }
 
-    public ParkingLot(String id, String name, int size, String parkingBoyId) {
+    public ParkingLot(String id, String name, int size) {
         this.id = id;
         this.name = name;
         this.size = size;
-        this.parkingBoyId = parkingBoyId;
+        //this.parkingBoyId = parkingBoyId;
     }
 
     public String getId() {
@@ -53,11 +53,11 @@ public class ParkingLot {
         this.carList = carList;
     }
 
-    public String getParkingBoyId() {
-        return parkingBoyId;
-    }
-
-    public void setParkingBoyId(String parkingBoyId) {
-        this.parkingBoyId = parkingBoyId;
-    }
+//    public String getParkingBoyId() {
+//        return parkingBoyId;
+//    }
+//
+//    public void setParkingBoyId(String parkingBoyId) {
+//        this.parkingBoyId = parkingBoyId;
+//    }
 }

@@ -8,6 +8,12 @@ import java.util.List;
 public class ParkingLotRepository {
     private List<ParkingLot> parkingLots = new ArrayList<>();
 
+    ParkingLot parkingLot = new ParkingLot("D1", "停车场第一个", 2);
+
+    public ParkingLotRepository(){
+        parkingLots.add(parkingLot);
+    }
+
     public List<ParkingLot> getParkingLots() {
         return parkingLots;
     }
@@ -32,5 +38,9 @@ public class ParkingLotRepository {
 
     public void delete(ParkingLot parkingLot){
         parkingLots.remove(parkingLot);
+    }
+
+    public int getCounts(){
+        return parkingLots.size();
     }
 }

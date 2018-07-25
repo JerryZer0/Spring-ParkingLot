@@ -11,29 +11,32 @@ import java.util.List;
 
 @Service
 public class ParkingSystemService {
-    private ParkingBoyRepository parkingBoyRepository;
-    private ParkingLotRepository parkingLotRepository;
+    private ParkingBoyRepository parkingBoyRepository = new ParkingBoyRepository();
+    private ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
 
     private List<ParkingBoy> parkingBoyList = new ArrayList<>();
 
-    public ParkingSystemService() {
-
-        ParkingBoyRepository parkingBoyRepository = new ParkingBoyRepository();
-        ParkingLot parkingLot = new ParkingLot("D1","停车小弟第一个",2,"1");
-        ParkingBoy parkingBoy = new ParkingBoy("1","停车场jj");
-        parkingBoy.addParkingLot(parkingLot);
-        parkingBoyList.add(parkingBoy);
-
-    }
-
     public List<ParkingBoy> showParkingBoys() {
-        //List<ParkingBoy> parkingBoys = parking
+        List<ParkingBoy> parkingBoyList = parkingBoyRepository.getParkingBoys();
         return parkingBoyList;
     }
 
     public ParkingBoy addParkingBoy(ParkingBoy parkingBoy) {
-        parkingBoy.setId("D"+parkingBoyList.size());
-        parkingBoyList.add(parkingBoy);
+        int size = parkingBoyRepository.getCounts();
+        parkingBoy.setId("D"+size);
+        parkingBoyRepository.add(parkingBoy);
         return parkingBoy;
+    }
+
+    public ParkingLot addParkingLot(ParkingLot parkingLot) {
+        int size = parkingLotRepository.getCounts();
+        parkingLot.setId("L"+size);
+        parkingLotRepository.add(parkingLot);
+        return parkingLot;
+    }
+
+    public List<ParkingLot> showParkingLots() {
+        List<ParkingLot> parkingLotList = parkingLotRepository.getParkingLots();
+        return parkingLotList;
     }
 }

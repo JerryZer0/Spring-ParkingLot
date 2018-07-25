@@ -1,36 +1,49 @@
 package com.oocl.SpringParkingLot.database;
 
 import com.oocl.SpringParkingLot.core.ParkingBoy;
+import com.oocl.SpringParkingLot.core.ParkingLot;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoyRepository {
-    private List<ParkingBoy> parkingLots = new ArrayList<>();
+    private List<ParkingBoy> parkingBoys = new ArrayList<>();
 
-    public List<ParkingBoy> getParkingLots() {
-        return parkingLots;
+    ParkingBoy parkingBoy = new ParkingBoy("1", "停车小弟jj");
+    ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
+
+    public ParkingBoyRepository() {
+        parkingBoy.setParkingLotList(parkingLotRepository.getParkingLots());
+        parkingBoys.add(parkingBoy);
     }
 
-    public void setParkingLots(List<ParkingBoy> parkingLots) {
-        this.parkingLots = parkingLots;
+    public List<ParkingBoy> getParkingBoys() {
+        return parkingBoys;
     }
 
-    public void add(ParkingBoy parkingBoy){
-        parkingLots.add(parkingBoy);
+    public void setParkingBoys(List<ParkingBoy> parkingBoys) {
+        this.parkingBoys = parkingBoys;
     }
 
-    public void update(ParkingBoy parkingBoy,String boyId){
-        for (ParkingBoy boy : parkingLots) {
-            if(boy.getId().equals(boyId)){
-                parkingLots.remove(boy);
-                parkingLots.add(parkingBoy);
+    public void add(ParkingBoy parkingBoy) {
+        parkingBoys.add(parkingBoy);
+    }
+
+    public void update(ParkingBoy parkingBoy, String boyId) {
+        for (ParkingBoy boy : parkingBoys) {
+            if (boy.getId().equals(boyId)) {
+                parkingBoys.remove(boy);
+                parkingBoys.add(parkingBoy);
                 break;
             }
         }
     }
 
-    public void delete(ParkingBoy parkingBoy){
-        parkingLots.remove(parkingBoy);
+    public void delete(ParkingBoy parkingBoy) {
+        parkingBoys.remove(parkingBoy);
+    }
+
+    public int getCounts() {
+        return parkingBoys.size();
     }
 }
