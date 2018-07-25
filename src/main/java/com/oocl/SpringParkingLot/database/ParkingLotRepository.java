@@ -43,4 +43,15 @@ public class ParkingLotRepository {
     public int getCounts(){
         return parkingLots.size();
     }
+
+    public ParkingLot findById(int id) {
+        ParkingLot parkingLot = new ParkingLot();
+        for (ParkingLot lot : parkingLots) {
+            if (lot.getId() == id) {
+                parkingLot = lot;
+                break;
+            }
+        }
+        return parkingLot;
+    }
 }

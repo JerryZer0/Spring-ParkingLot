@@ -29,9 +29,20 @@ public class ParkingBoyRepository {
         parkingBoys.add(parkingBoy);
     }
 
+    public ParkingBoy findById(int id) {
+        ParkingBoy parkingBoy = new ParkingBoy();
+        for (ParkingBoy boy : parkingBoys) {
+            if (boy.getId() == id) {
+                parkingBoy = boy;
+                break;
+            }
+        }
+        return parkingBoy;
+    }
+
     public void update(ParkingBoy parkingBoy, int boyId) {
         for (ParkingBoy boy : parkingBoys) {
-            if (boy.getId()==boyId) {
+            if (boy.getId() == boyId) {
                 parkingBoys.remove(boy);
                 parkingBoys.add(parkingBoy);
                 break;

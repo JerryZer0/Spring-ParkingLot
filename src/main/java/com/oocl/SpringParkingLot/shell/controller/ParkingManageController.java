@@ -45,4 +45,13 @@ public class ParkingManageController {
         return boy;
     }
 
+    @DeleteMapping("parkingBoys/{id}")
+    public void deleteParkingBoy(@PathVariable int id){
+        service.deleteParkingBoy(id);
+    }
+
+    @DeleteMapping("parkingLots/{id}")
+    public void deleteParkingLot(@PathVariable int id){
+        service.deleteParkingLot(id);
+    }
 }

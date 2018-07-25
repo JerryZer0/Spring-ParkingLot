@@ -56,4 +56,13 @@ public class ParkingManageService {
         return parkingBoy;
     }
 
+    public void deleteParkingBoy(int id) {
+        ParkingBoy parkingBoy = parkingBoyRepository.findById(id);
+        parkingBoyRepository.delete(parkingBoy);
+    }
+
+    public void deleteParkingLot(int id) {
+        ParkingLot parkingLot = parkingLotRepository.findById(id);
+        parkingLotRepository.delete(parkingLot);
+    }
 }
