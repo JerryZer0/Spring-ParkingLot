@@ -1,12 +1,15 @@
 package com.oocl.SpringParkingLot.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ParkingBoy {
     private int id;
     private String name;
     private List<ParkingLot> parkingLotList= new ArrayList<>();
+    private List<Order> OrderList = new ArrayList<>();
 
     public ParkingBoy() {
     }
@@ -42,5 +45,17 @@ public class ParkingBoy {
 
     public void addParkingLot(ParkingLot parkingLot){
         parkingLotList.add(parkingLot);
+    }
+
+    public List<Order> getOrderList() {
+        return OrderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        OrderList = orderList;
+    }
+
+    public void addOrder(Order order){
+        OrderList.add(order);
     }
 }

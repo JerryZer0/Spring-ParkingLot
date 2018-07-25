@@ -1,12 +1,25 @@
 package com.oocl.SpringParkingLot.core;
 
-public class Order {
-    private boolean status;
-    private Receipt receipt;
+import java.util.Map;
 
-    public Order(Receipt receipt){
+public class Order {
+    private String id;
+    private boolean status;
+    //private Receipt receipt;
+//    private Map
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Order(){
+        this.id = "23333";
         this.status = true;
-        this.receipt = receipt;
+        //this.receipt = receipt;
     }
 
     public boolean isStatus() {
