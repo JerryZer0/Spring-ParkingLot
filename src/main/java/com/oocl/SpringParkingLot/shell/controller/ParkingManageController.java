@@ -2,17 +2,17 @@ package com.oocl.SpringParkingLot.shell.controller;
 
 import com.oocl.SpringParkingLot.core.ParkingBoy;
 import com.oocl.SpringParkingLot.core.ParkingLot;
-import com.oocl.SpringParkingLot.shell.service.ParkingSystemService;
+import com.oocl.SpringParkingLot.shell.service.ParkingManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ParkingSystemController {
+public class ParkingManageController {
 
     @Autowired
-    private ParkingSystemService service;
+    private ParkingManageService service;
 
     @GetMapping("parkingBoys")
     public List<ParkingBoy> showParkingBoys(ParkingBoy parkingBoy){
@@ -39,9 +39,10 @@ public class ParkingSystemController {
     }
 
     @PostMapping("parkingBoys/{id}/parkingLots")
-    public ParkingBoy addParkingBoyParkingLot(@PathVariable String id, @RequestBody ParkingLot parkingLot){
+    public ParkingBoy addParkingBoyParkingLot(@PathVariable int id, @RequestBody ParkingLot parkingLot){
         ParkingBoy boy = service.findById(id);
         boy.addParkingLot(parkingLot);
         return boy;
     }
+
 }

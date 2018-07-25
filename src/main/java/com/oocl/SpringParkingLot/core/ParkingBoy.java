@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    private String id;
+    private int id;
     private String name;
     private List<ParkingLot> parkingLotList= new ArrayList<>();
 
     public ParkingBoy() {
     }
 
-    public ParkingBoy(String id, String name) {
+    public ParkingBoy(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

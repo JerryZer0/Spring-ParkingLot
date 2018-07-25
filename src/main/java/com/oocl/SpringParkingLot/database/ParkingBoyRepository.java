@@ -9,7 +9,7 @@ import java.util.List;
 public class ParkingBoyRepository {
     private List<ParkingBoy> parkingBoys = new ArrayList<>();
 
-    ParkingBoy parkingBoy = new ParkingBoy("D1", "停车小弟jj");
+    ParkingBoy parkingBoy = new ParkingBoy(1, "停车小弟jj");
     ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
 
     public ParkingBoyRepository() {
@@ -29,9 +29,9 @@ public class ParkingBoyRepository {
         parkingBoys.add(parkingBoy);
     }
 
-    public void update(ParkingBoy parkingBoy, String boyId) {
+    public void update(ParkingBoy parkingBoy, int boyId) {
         for (ParkingBoy boy : parkingBoys) {
-            if (boy.getId().equals(boyId)) {
+            if (boy.getId()==boyId) {
                 parkingBoys.remove(boy);
                 parkingBoys.add(parkingBoy);
                 break;

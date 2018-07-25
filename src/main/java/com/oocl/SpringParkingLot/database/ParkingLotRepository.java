@@ -8,7 +8,7 @@ import java.util.List;
 public class ParkingLotRepository {
     private List<ParkingLot> parkingLots = new ArrayList<>();
 
-    ParkingLot parkingLot = new ParkingLot("D1", "停车场第一个", 2);
+    ParkingLot parkingLot = new ParkingLot(1, "停车场第一个", 2);
 
     public ParkingLotRepository(){
         parkingLots.add(parkingLot);
@@ -26,9 +26,9 @@ public class ParkingLotRepository {
         parkingLots.add(parkingLot);
     }
 
-    public void update(ParkingLot parkingLot,String lotId){
+    public void update(ParkingLot parkingLot,int lotId){
         for (ParkingLot lot1 : parkingLots) {
-            if(lot1.getId().equals(lotId)){
+            if(lot1.getId()==lotId){
                 parkingLots.remove(lot1);
                 parkingLots.add(parkingLot);
                 break;

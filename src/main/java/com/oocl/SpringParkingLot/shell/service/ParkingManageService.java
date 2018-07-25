@@ -1,7 +1,7 @@
 package com.oocl.SpringParkingLot.shell.service;
 
-import com.oocl.SpringParkingLot.core.ParkingBoy;
-import com.oocl.SpringParkingLot.core.ParkingLot;
+import com.oocl.SpringParkingLot.core.*;
+import com.oocl.SpringParkingLot.database.CarRepository;
 import com.oocl.SpringParkingLot.database.ParkingBoyRepository;
 import com.oocl.SpringParkingLot.database.ParkingLotRepository;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ParkingSystemService {
+public class ParkingManageService {
     private ParkingBoyRepository parkingBoyRepository = new ParkingBoyRepository();
     private ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
 
@@ -20,16 +20,16 @@ public class ParkingSystemService {
     }
 
     public ParkingBoy addParkingBoy(ParkingBoy parkingBoy) {
-        int size = parkingBoyRepository.getCounts();
-        parkingBoy.setId("D"+size);
         parkingBoyRepository.add(parkingBoy);
+        int size = parkingBoyRepository.getCounts();
+        parkingBoy.setId(size);
         return parkingBoy;
     }
 
     public ParkingLot addParkingLot(ParkingLot parkingLot) {
-        int size = parkingLotRepository.getCounts();
-        parkingLot.setId("L"+size);
         parkingLotRepository.add(parkingLot);
+        int size = parkingLotRepository.getCounts();
+        parkingLot.setId(size);
         return parkingLot;
     }
 
@@ -42,12 +42,12 @@ public class ParkingSystemService {
 //
 //    }
 
-    public ParkingBoy findById(String id) {
+    public ParkingBoy findById(int id) {
         List<ParkingBoy> parkingBoyList = parkingBoyRepository.getParkingBoys();
         ParkingBoy parkingBoy = new ParkingBoy();
         for (ParkingBoy boy :
                 parkingBoyList) {
-            if(boy.getId().equals(id)){
+            if (boy.getId() == id) {
                 parkingBoy = boy;
                 break;
             }
@@ -55,4 +55,5 @@ public class ParkingSystemService {
         }
         return parkingBoy;
     }
+
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    private String id;
+    private int id;
     private String name;
     private int size;
     //private String parkingBoyId;
@@ -14,18 +14,18 @@ public class ParkingLot {
     public ParkingLot() {
     }
 
-    public ParkingLot(String id, String name, int size) {
+    public ParkingLot(int id, String name, int size) {
         this.id = id;
         this.name = name;
         this.size = size;
         //this.parkingBoyId = parkingBoyId;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
