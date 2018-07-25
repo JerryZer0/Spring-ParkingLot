@@ -4,10 +4,7 @@ import com.oocl.SpringParkingLot.core.ParkingBoy;
 import com.oocl.SpringParkingLot.core.ParkingLot;
 import com.oocl.SpringParkingLot.shell.service.ParkingSystemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,5 +36,12 @@ public class ParkingSystemController {
     public ParkingLot addParkingLot(@RequestBody ParkingLot parkingLot){
         ParkingLot lot = service.addParkingLot(parkingLot);
         return lot;
+    }
+
+    @PostMapping("parkingBoys/{id}/parkingLots")
+    public ParkingBoy addParkingBoyParkingLot(@PathVariable String id, @RequestBody ParkingLot parkingLot){
+        ParkingBoy boy = service.findById(id);
+        boy.addParkingLot(parkingLot);
+        return boy;
     }
 }

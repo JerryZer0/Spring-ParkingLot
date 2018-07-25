@@ -9,7 +9,7 @@ import java.util.List;
 public class ParkingBoyRepository {
     private List<ParkingBoy> parkingBoys = new ArrayList<>();
 
-    ParkingBoy parkingBoy = new ParkingBoy("1", "停车小弟jj");
+    ParkingBoy parkingBoy = new ParkingBoy("D1", "停车小弟jj");
     ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
 
     public ParkingBoyRepository() {

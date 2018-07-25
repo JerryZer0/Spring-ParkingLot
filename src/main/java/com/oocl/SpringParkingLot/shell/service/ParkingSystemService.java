@@ -14,8 +14,6 @@ public class ParkingSystemService {
     private ParkingBoyRepository parkingBoyRepository = new ParkingBoyRepository();
     private ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
 
-    private List<ParkingBoy> parkingBoyList = new ArrayList<>();
-
     public List<ParkingBoy> showParkingBoys() {
         List<ParkingBoy> parkingBoyList = parkingBoyRepository.getParkingBoys();
         return parkingBoyList;
@@ -38,5 +36,23 @@ public class ParkingSystemService {
     public List<ParkingLot> showParkingLots() {
         List<ParkingLot> parkingLotList = parkingLotRepository.getParkingLots();
         return parkingLotList;
+    }
+
+//    public ParkingBoy addParkingBoyParkingLot(ParkingLot parkingLot) {
+//
+//    }
+
+    public ParkingBoy findById(String id) {
+        List<ParkingBoy> parkingBoyList = parkingBoyRepository.getParkingBoys();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        for (ParkingBoy boy :
+                parkingBoyList) {
+            if(boy.getId().equals(id)){
+                parkingBoy = boy;
+                break;
+            }
+
+        }
+        return parkingBoy;
     }
 }
