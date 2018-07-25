@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    private int id;
+    private String id;
     private String name;
     private int size;
     private String parkingBoyId;
@@ -14,7 +14,7 @@ public class ParkingLot {
     public ParkingLot() {
     }
 
-    public ParkingLot(int id, String name, int size, String parkingBoyId, List<Car> carList) {
+    public ParkingLot(String id, String name, int size, String parkingBoyId, List<Car> carList) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -22,11 +22,11 @@ public class ParkingLot {
         this.carList = carList;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

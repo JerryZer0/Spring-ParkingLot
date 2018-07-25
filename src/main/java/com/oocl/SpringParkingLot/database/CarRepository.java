@@ -22,7 +22,7 @@ public class CarRepository {
 
     public void update(Car car,String plateNumber){
         for (Car c : cars) {
-            if(c.getPlateNumber().equals(car.getPlateNumber())){
+            if(c.getPlateNumber().equals(plateNumber)){
                 cars.remove(c);
                 cars.add(car);
                 break;
